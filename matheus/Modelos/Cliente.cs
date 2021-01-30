@@ -16,7 +16,6 @@ namespace matheus.Modelos
         
        public static void Salvar(Cliente salvar)
        {
-           
            //Salvar
        }
 
