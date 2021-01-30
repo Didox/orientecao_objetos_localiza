@@ -1,6 +1,5 @@
 ﻿using Negocio;
 using System;
-using Negocio;
 
 namespace AppOrientacaoObjeto
 {
@@ -16,6 +15,8 @@ namespace AppOrientacaoObjeto
                 Cor = "Prata",
                 Ano = 2012
             });
+
+            var fisica = new Fisica();
 
             Console.WriteLine("Hello World!");
         }
