@@ -2,20 +2,23 @@ using Newtonsoft.Json;
 
 namespace Axell.Models
 {
-    public class Customer
+    public class Customer : People
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public string Card { get; set; }
 
-        public Customer(int id, string name)
+        public Customer(int id, string name, string card) : base(id, name)
         {
-            Id = id;
-            Name = name;
+            Card = card;
         }
 
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
+        }
+
+        public override string Details()
+        {
+            return $"{{ \"name\": \"{Name}\", \"card\": \"{Card}\" }}";
         }
     }
 }
