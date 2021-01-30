@@ -15,7 +15,7 @@ namespace daniloAlmeida.Modelos
 
         public List<string> BuscarNoBanco(string nome? = "teste"){
             
-            return nomes[];
+            return nomes[].ToList;
         } 
 
         
