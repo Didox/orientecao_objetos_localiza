@@ -1,12 +1,24 @@
-﻿using System;
+﻿using System.Net.Security;
+using System.IO.Pipes;
+using System.Net.WebSockets;
+using System.Net.Http;
+using System;
+using daniloAlmeida.Modelos;
 
-namespace daniloAlmeida
+namespace DaniloAlmeida
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var cliente = new Cliente();
+
+            cliente.Id = 1;
+            cliente.Nome = "Danilo";
+
+            cliente.SalvarBanco();
+            Cliente.BuscarNoBanco("Danilo");
+            cliente.Tipo = TipoCliente.Basico;
         }
     }
-}
+} 
