@@ -1,4 +1,5 @@
 ﻿using System;
+using lucio.Modelo;
 using Modelo.Cliente;
 
 namespace Lucio
@@ -6,16 +7,21 @@ namespace Lucio
     class Program
     {
         static void Main(string[] args)
-        {
-            int codigoDoNovoCliente = 10;
-            string nomeDoNovoCliente = Cliente.AlterarNomeParaCaixaAlta("lucio pimenta");
-            int idadeNovoCliente = 35;
+        {            
 
-            Cliente novoCliente = new Cliente(codigoDoNovoCliente, nomeDoNovoCliente, idadeNovoCliente);
-            
-            Console.WriteLine(novoCliente.Codigo);
-            Console.WriteLine(novoCliente.Nome);
-            Console.WriteLine(novoCliente.Idade);
+            PessoaFisica novoClientePessoaFisica = new PessoaFisica();
+
+            novoClientePessoaFisica.Nome = Cliente.AlterarNomeParaCaixaAlta("cliente pessoa fisica");
+            novoClientePessoaFisica.CPF = 123456789;
+
+            novoClientePessoaFisica.RetornaDadosCliente();
+
+            PessoaJuridica novoClientePessoaJuridica = new PessoaJuridica();
+
+            novoClientePessoaJuridica.Nome = Cliente.AlterarNomeParaCaixaAlta("cliente Pessoa Juridica");
+            novoClientePessoaJuridica.CNPJ = 000100010001;
+
+            novoClientePessoaJuridica.RetornaDadosCliente();
         }
     }
 }
