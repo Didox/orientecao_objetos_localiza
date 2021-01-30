@@ -1,12 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using Axell.Models;
 
-namespace axell
+namespace Axell
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var customers = new List<Customer>();
+
+            for (int i = 1; i <= 3; i++)
+            {
+                customers.Add(new Customer(i, $"Customer{i}"));
+            }
+
+            customers.ForEach(Console.WriteLine);
         }
     }
 }
