@@ -10,15 +10,13 @@ namespace Negocio
         public string Nome { get; set; }
 
         [CampoPersistido]
-        public string Telefone { get; set; }
-
         public int Ano { get; set; }
 
         public string Descricao { get; set; }
 
         public void Salvar()
         {
-            CarroDbService.Salvar(this);
+            CarroDBService.Salvar(this);
         }
     }
 }
