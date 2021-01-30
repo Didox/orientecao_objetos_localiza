@@ -8,7 +8,13 @@ namespace matheus.Modelos
        public int Id {get; set;}
        public string Nome {get; set;}
 
-       public void SalvarCliente(Cliente cliente)
+       public void Salvar()
+       {
+           //instancia this
+           //Salvar
+       }
+        
+       public static void Salvar(Cliente salvar)
        {
            //Salvar
        }

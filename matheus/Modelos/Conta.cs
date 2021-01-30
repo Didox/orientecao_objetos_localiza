@@ -9,7 +9,7 @@ using System;
  
        public virtual void Depositar()
        {
-           Console.WriteLine("Deposito classe pai: " + Banco);
+           Console.WriteLine("Deposito classe pai.");
        }
 
     }
