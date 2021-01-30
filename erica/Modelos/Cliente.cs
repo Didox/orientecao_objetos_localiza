@@ -19,7 +19,7 @@ namespace erica.Modelos
 
         public void Salvar()
         {
-          
+          Console.WriteLine("Cliente salvo com sucesso!");
         }
     }
 }
