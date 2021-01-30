@@ -7,16 +7,14 @@ namespace Victor
     {
         static void Main(string[] args)
         {
-            var cliente = new Cliente();
+            var cliente = new Cliente("Victor","123123213");
 
-            cliente.Id = 0;
-
-            Console.WriteLine("Digite o seu nome");
-            cliente.Nome = Console.ReadLine();
+            cliente.Tipo = TipoCliente.Basic;
 
             System.Console.WriteLine("Digite a sua idade");
             cliente.Idade = Convert.ToInt32(Console.ReadLine());
 
+            cliente.EscreveNaTelaAlgo();
             cliente.Salvar();
 
         }
