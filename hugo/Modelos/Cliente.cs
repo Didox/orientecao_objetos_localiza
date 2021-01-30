@@ -3,31 +3,26 @@ using System.Collections.Generic;
 
 namespace hugo.Modelos
 {
-    public class Cliente
+    public class Cliente : Pessoa
     {
-        public int Id { get; set; }
-        private string nome;
-        private string nomePrivado;
+
+        private string telefone { get; set; }
+        public Cliente(){}
+       
+        public Cliente(string nome, int idade) :base (nome, idade)
+        {
+            this.Nome = nome;
+            this.Idade = idade;
+        }
         
 
-        public string Nome{
-            get
-            {
-                return this.nome;
-            }
-            set
-            {
-                this.nome = value;
-            }
-        }
-
-        public void Salvar(){
-            Console.WriteLine("Salvou cliente");
-        }
-
-        public static List<Cliente> BuscaPorNome(string nome){
-            return new List<Cliente>();
+            
+        public override void exibeNomeNaTela()
+        {
+            Console.WriteLine($"Exibe nome metodo Filho");
+            base.exibeNomeNaTela();
         }
         
     }
 }
+        

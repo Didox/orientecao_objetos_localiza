@@ -7,13 +7,14 @@ namespace hugo
     {
         static void Main(string[] args)
         {
-            var cliente = new Cliente();
-            cliente.Id = 1;
-            cliente.Nome = "Hugo";
-            cliente.Salvar();
+           
+            var cliente = new Cliente()
+            {
+                Id= 1,
+                Nome = "Hugo"
+            };
 
-            Cliente.BuscaPorNome("Hugo");
-            Console.WriteLine("Cliente "+cliente.Nome+" cadastrado");
+            cliente.exibeNomeNaTela();
         }
     }
 }
