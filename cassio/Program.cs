@@ -14,11 +14,11 @@ namespace cassio
                 "Git - GitHub", "Pull Requests", "Dotnet CLI", "Estrutura simples do C#"
             };
 
-            var aula = new Aula();
+           
             foreach (var tema in temasAbordados)
             {
-                aula.Tema = tema;
-                Console.WriteLine(aula.Tema);
+                var aula = new Aula(tema);
+                aula.MostrarTemaAula();
             }
 
         }
