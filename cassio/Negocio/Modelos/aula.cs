@@ -1,8 +1,6 @@
-using cassio.Modelos;
 using System;
-using System.Collections.Generic;
 
-namespace PrimeiraAulaCSharp
+namespace Negocio.Modelos
 {
     public class Aula : BaseAula
     {
