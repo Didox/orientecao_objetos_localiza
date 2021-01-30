@@ -1,10 +1,24 @@
 ﻿using System;
 using Database;
 
-public class Carro
+namespace Negocio
 {
-	public int id { get; set; }
-	public string modelo { get; set; }
-	public int ano { get; set; }
-	
+    [Tabela(Nome = "tbl_carros")]
+    public class Carro : Dado
+    {
+        [CampoPersistido(NomeColuna = "nome_carro")]
+        public string Nome { get; set; }
+
+        [CampoPersistido]
+        public string Telefone { get; set; }
+
+        public int Ano { get; set; }
+
+        public string Descricao { get; set; }
+
+        public void Salvar()
+        {
+            CarroDbService.Salvar(this);
+        }
+    }
 }

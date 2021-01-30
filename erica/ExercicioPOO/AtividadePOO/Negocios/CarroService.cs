@@ -1,10 +1,16 @@
 ﻿using System;
+using Database;
 
-public class CarroService
+namespace Negocio
 {
-	public void Salvar(Carro carro)
-	{
-		Console.WriteLine("Salvando carro..");
-		CarroDBService.Salvar(carro);
-	}
+    public class CarroService
+    {
+        public static void Salvar(Carro carro)
+        {
+            //carro.Ano = 1;
+            Console.WriteLine("Estou salvando o carro");
+
+            CarroDbService.Salvar(carro);
+        }
+    }
 }
