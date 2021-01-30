@@ -8,6 +8,10 @@ namespace Modelo.Cliente
         public string Nome { get; set; }
         public int Idade { get; set; }
 
+        public Cliente()
+        {
+
+        }
         public Cliente(int novoCodigo, string novoNome, int idadeCliente)
         {
             this.Codigo = novoCodigo;
@@ -18,6 +22,11 @@ namespace Modelo.Cliente
         public static string AlterarNomeParaCaixaAlta(string nome)
         {
             return nome.ToUpper();
+        }
+
+        public virtual void RetornaDadosCliente()
+        {
+            Console.WriteLine($"Nome do Cliente: {Nome}");
         }
         
   

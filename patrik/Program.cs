@@ -8,25 +8,19 @@ namespace Patrik
     {
         static void Main(string[] args)
         {
-            var cliente = new Cliente();
-            cliente.Id = 1;
-            cliente.Nome = "Patrik";
-            cliente.save();
+            var cliente = new Cliente(1, "Patrik", "Masculino", "99-99999-9999");
+            cliente.Salvar();
 
-            cliente = new Cliente();
-            cliente.Id = 2;
-            cliente.Nome = "Danilo";
-            cliente.save();
+            cliente = new Cliente(2, "João da Silva", "Masculino", "99-99999-9999");
+            cliente.Salvar();
 
-            cliente = new Cliente();
-            cliente.Id = 3;
-            cliente.Nome = "João da Silva";
-            cliente.save();
+            cliente = new Cliente(3, "Maria", "Feminino", "99-99999-9999");
+            cliente.Salvar();
 
-            List<Cliente> clientes = Cliente.listarClientes();
+            List<Cliente> clientes = Cliente.ListarClientes();
             foreach (var item in clientes)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.imprimePessoa());
             }
         }
     }
