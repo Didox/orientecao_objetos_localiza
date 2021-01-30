@@ -9,11 +9,13 @@ namespace Lucio
         {
             int codigoDoNovoCliente = 10;
             string nomeDoNovoCliente = Cliente.AlterarNomeParaCaixaAlta("lucio pimenta");
+            int idadeNovoCliente = 35;
 
-            Cliente novoCliente = new Cliente(codigoDoNovoCliente, nomeDoNovoCliente);
+            Cliente novoCliente = new Cliente(codigoDoNovoCliente, nomeDoNovoCliente, idadeNovoCliente);
             
             Console.WriteLine(novoCliente.Codigo);
             Console.WriteLine(novoCliente.Nome);
+            Console.WriteLine(novoCliente.Idade);
         }
     }
 }
