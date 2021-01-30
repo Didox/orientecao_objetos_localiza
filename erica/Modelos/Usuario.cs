@@ -5,11 +5,10 @@ namespace erica.Modelos
     public class Usuario
     {
          private int id {get;set;}
-         private string usuario {get;set;}
-         private string senha {get;set;}
+         protected string usuario {get;set;}
 
-         public void informaUsuarioESenha(){
-             Console.WriteLine("O usuário é: " + this.usuario + "e a senha é: " + this.senha);
+         public virtual void informaDadosUsuario(){
+             Console.WriteLine("Dados do usuário (pai): " + this.usuario);
          }
     }
 }
