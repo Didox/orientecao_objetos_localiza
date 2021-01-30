@@ -1,16 +1,16 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DataBase;
 
 namespace Negocio
 {
-    public class CarroServico
+    public class CarroService
     {
 
         public void Salvar(Carro carro)
         {
-            DBServicesGenerics.Salvar(carro);
+            CarroDBService.Salvar(carro);
         }
     }
 }

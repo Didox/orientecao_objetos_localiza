@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
 
 namespace DataBase
 {
-    public class CarroDBService
+    public class DBServicesGenerics
     {
-        public static void Salvar(IBase carro)
+        public static void Salvar<T>(T generico)
         {
-            var sql = Map.Builder(carro);
+            var sql = GenericMap.Builder(generico);
+
             Console.WriteLine(sql);
         }
     }
