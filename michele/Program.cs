@@ -7,14 +7,16 @@ namespace Michele
     {
         static void Main(string[] args)
         {
-            var client = new Client();
-            client.Address= "Romoaldo Lopes Cançado, 224";
-            client.BirthDay = new DateTime(1996,05,06);
-            client.Name = "Michele de Freitas Ribeiro";
-            client.Id = 123456;
-            client.Tipo = TipoCliente.Basic;
+            var client = new Client("Michele", "Ribeiro"){
+                Address =  "Romoaldo Lopes Cançado, 224",
+                Id = 123456,
+                Tipo = TipoCliente.Basic
+            };
             var clientSearch = Client.SearchName("Michele de Freitas Ribeiro");
             Client.Save();
+            client.WriteDisplay();
+
+
             Console.WriteLine(client);
         }
     }
