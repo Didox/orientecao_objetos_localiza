@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Business.Models;
 using Business.Services;
 
@@ -6,8 +7,9 @@ namespace Application
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Generics()
         {
+            Console.WriteLine("Generics");
             var customers = new List<Customer>();
 
             for (int i = 1; i <= 3; i++)
@@ -15,7 +17,16 @@ namespace Application
                 customers.Add(new Customer(i, $"Customer{i}", "9999 9999 9999 9999"));
             }
 
-            customers.ForEach(CustomerService.Save);
+            customers.ForEach(BaseService.Save);
+
+            var customerList = BaseService.List<Customer>();
+            customerList.ForEach(customer => Console.WriteLine(customer.Details()));
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            Generics();
         }
     }
 }
