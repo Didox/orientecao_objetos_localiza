@@ -5,8 +5,8 @@ namespace daniloAlmeida.Modelos
 {
     public class Cliente
     {
-        public string nome { get; set; }
-        public string obs;
+        public string Nome { get; set; }
+        public string Obs;
         private string _obs;
 
         public void SalvarBanco(){
