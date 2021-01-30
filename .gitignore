@@ -7,10 +7,6 @@
 bin/
 obj/
 
-.vscode
-
-.vscode/*
-
 # Common node modules locations
 /node_modules
 /wwwroot/node_modules
@@ -60,7 +56,6 @@ Temporary Items
 .apdisk
 
 ### VisualStudioCode ###
-.vscode
 .vscode/*
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -456,3 +451,15 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,dotnetcore,visualstudio,visualstudiocode,vscode
+
+# Created by https://www.toptal.com/developers/gitignore/api/macos,linux,windows,dotnetcore,visualstudio,visualstudiocode,vscode
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,windows,dotnetcore,visualstudio,visualstudiocode,vscode
+
+### DotnetCore ###
+# .NET Core build folders
+bin/
+obj/
+
+.vscode
+
+.vscode/*
