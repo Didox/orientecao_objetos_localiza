@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Negocio
 {
-    public class Juridica : Cliente
+    public sealed class Juridica : Cliente
     {
         public string RazaoSocial { get; set; }
         public string Cnpj { get; set; }
