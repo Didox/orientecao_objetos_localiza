@@ -15,7 +15,7 @@ namespace Visao
             };
 
             List<Aula> aulasParaSalvar = new List<Aula>();
-            var _dbService = new AulaDBService();
+            var _dbAulaService = new AulaDBService();
 
             foreach (var tema in temasAbordados)
             {
@@ -24,7 +24,10 @@ namespace Visao
                 aula.MostrarTemaAula();
             }
 
-            aulasParaSalvar.ForEach(aula => _dbService.Salvar(aula));
+            aulasParaSalvar.ForEach(aula => _dbAulaService.Salvar(aula));
+            var listaAulas = _dbAulaService.Listar();
+
+            listaAulas.ForEach(aula => System.Console.WriteLine("Aula: " + ((Aula)aula).Tema));
 
         }
     }

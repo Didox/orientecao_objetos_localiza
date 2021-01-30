@@ -1,13 +1,21 @@
 ﻿using Database;
+using Negocio.Modelos;
+using System.Collections.Generic;
 
 namespace Negocio.Servico
 {
     public class AulaDBService : BDService
     {
-        public override void Salvar(Ibase iBase)
+        public override void Salvar<T>(T aula)
         {
-            base.Salvar(iBase);
+            base.Salvar(aula);
         }
+
+        public override List<object> Listar()
+        {
+            return base.Listar();
+        }
+
     }
 
 }

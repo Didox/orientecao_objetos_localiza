@@ -5,12 +5,14 @@ namespace Database
 {
     public class BDService
     {
-        public virtual void Salvar(Ibase iBase)
-        {
-            var campos = iBase.GetType().GetProperties();
+        ICollection<string> colunas = new HashSet<string>();
 
-            ICollection<string> colunas = new HashSet<string>();
-            string query = $"insert into {iBase.GetType().Name} values (";
+        public virtual void Salvar<T>(T generico)
+        {
+            var tipo = generico.GetType();
+            var campos = tipo.GetProperties();
+
+            string query = $"insert into {generico.GetType().Name} values (";
 
             foreach (var campo in campos)
             {
@@ -22,5 +24,13 @@ namespace Database
 
             Console.WriteLine(query);
         }
+
+
+        public virtual List<object> Listar()
+        {
+            // lista buscada do banco
+            return new List<object>();
+        }
+
     }
 }
