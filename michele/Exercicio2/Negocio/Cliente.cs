@@ -10,7 +10,7 @@ namespace Negocio
         public int Id { get; set; }
         public string Endereco { get; set; }
 
-        public void Salvar()
+        public virtual void Salvar()
         {
             ClienteDBService.Salvar(this);
         }

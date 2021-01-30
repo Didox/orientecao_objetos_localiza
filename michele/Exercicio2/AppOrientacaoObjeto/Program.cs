@@ -16,7 +16,11 @@ namespace AppOrientacaoObjeto
                 Ano = 2012
             });
 
-            var fisica = new Fisica();
+            var grupoCliente = new GrupoCliente()
+            {
+                Nome = "Belo Horizonte"
+            };
+            NegocioService.Salvar(grupoCliente);
 
             Console.WriteLine("Hello World!");
         }

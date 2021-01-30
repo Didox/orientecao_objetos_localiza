@@ -10,7 +10,7 @@ namespace Negocio
 
         public void Salvar(Carro carro)
         {
-            CarroDBService.Salvar(carro);
+            DBServicesGenerics.Salvar(carro);
         }
     }
 }
