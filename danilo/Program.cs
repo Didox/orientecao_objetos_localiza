@@ -1,5 +1,6 @@
 ﻿using System;
 using Danilo.Modelos;
+using Negocios;
 
 namespace Danilo
 {
@@ -22,7 +23,8 @@ namespace Danilo
 
             var lista = Cliente.BuscaPorNome("ds");
 
-            Console.WriteLine("Hello World!");
+            var carro = new Carro();
+            carro.Ano = 11;
         }
     }
 }
