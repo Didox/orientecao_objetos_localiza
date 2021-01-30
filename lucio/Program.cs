@@ -1,12 +1,19 @@
 ﻿using System;
+using Modelo.Cliente;
 
-namespace lucio
+namespace Lucio
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int codigoDoNovoCliente = 10;
+            string nomeDoNovoCliente = Cliente.AlterarNomeParaCaixaAlta("lucio pimenta");
+
+            Cliente novoCliente = new Cliente(codigoDoNovoCliente, nomeDoNovoCliente);
+            
+            Console.WriteLine(novoCliente.Codigo);
+            Console.WriteLine(novoCliente.Nome);
         }
     }
 }
