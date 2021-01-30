@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Axell.Models;
+﻿using System.Collections.Generic;
+using Business.Models;
+using Business.Services;
 
-namespace Axell
+namespace Application
 {
     class Program
     {
@@ -15,7 +15,7 @@ namespace Axell
                 customers.Add(new Customer(i, $"Customer{i}", "9999 9999 9999 9999"));
             }
 
-            customers.ForEach(customer => Console.WriteLine(customer.Details()));
+            customers.ForEach(CustomerService.Save);
         }
     }
 }

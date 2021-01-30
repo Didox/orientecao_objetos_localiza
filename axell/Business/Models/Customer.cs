@@ -1,19 +1,16 @@
-using Newtonsoft.Json;
+using Database.Attributes;
 
-namespace Axell.Models
+namespace Business.Models
 {
+    [Model(Table = "customers")]
     public class Customer : People
     {
+        [Column]
         public string Card { get; set; }
 
         public Customer(int id, string name, string card) : base(id, name)
         {
             Card = card;
-        }
-
-        public override string ToString()
-        {
-            return JsonConvert.SerializeObject(this);
         }
 
         public override string Details()
