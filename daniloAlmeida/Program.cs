@@ -1,4 +1,8 @@
-﻿using System;
+﻿using System.Net.Security;
+using System.IO.Pipes;
+using System.Net.WebSockets;
+using System.Net.Http;
+using System;
 using daniloAlmeida.Modelos;
 
 namespace DaniloAlmeida
@@ -9,10 +13,12 @@ namespace DaniloAlmeida
         {
             var cliente = new Cliente();
 
+            cliente.Id = 1;
             cliente.Nome = "Danilo";
-            cliente.SalvarBanco();
-           
 
+            cliente.SalvarBanco();
+            Cliente.BuscarNoBanco("Danilo");
+            cliente.Tipo = TipoCliente.Basico;
         }
     }
 } 
