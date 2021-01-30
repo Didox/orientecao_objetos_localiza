@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
 
 namespace DataBase
 {
-    public class CarroDBService
+    public class ClienteDBService 
     {
-        public static void Salvar(IBase carro)
+
+        public static void Salvar(IBase cliente)
         {
-            var sql = Map.Builder(carro);
+            var sql = Map.Builder(cliente);
             Console.WriteLine(sql);
         }
     }
