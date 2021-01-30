@@ -7,14 +7,10 @@ namespace matheus
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
 
-            Cliente cliente = new Cliente();
-            cliente.Id = 1;
-            cliente.Nome = "Matheus Sinnis";
-            cliente.SalvarCliente(cliente);
+            ContaCorrente contaCorrente = new ContaCorrente(1);
+            contaCorrente.Depositar();
 
-            List<Cliente> listaCliente = Cliente.RetonaListaCliente();
         }
     }
 }
