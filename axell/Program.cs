@@ -12,10 +12,10 @@ namespace Axell
 
             for (int i = 1; i <= 3; i++)
             {
-                customers.Add(new Customer(i, $"Customer{i}"));
+                customers.Add(new Customer(i, $"Customer{i}", "9999 9999 9999 9999"));
             }
 
-            customers.ForEach(Console.WriteLine);
+            customers.ForEach(customer => Console.WriteLine(customer.Details()));
         }
     }
 }
