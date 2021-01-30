@@ -1,12 +1,20 @@
 ﻿using System;
+using daniloAlmeida.Modelos;
 
-namespace daniloAlmeida
+namespace DaniloAlmeida
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var cliente = new Cliente();
+
+            cliente.nome = "Danilo";
+            cliente.SalvarBanco();
+
+            var lista = Cliente.BuscarNoBanco();
+
+
         }
     }
 }
