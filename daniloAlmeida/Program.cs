@@ -9,11 +9,9 @@ namespace DaniloAlmeida
         {
             var cliente = new Cliente();
 
-            cliente.nome = "Danilo";
+            cliente.Nome = "Danilo";
             cliente.SalvarBanco();
-
-            var lista = Cliente.BuscarNoBanco();
-
+           
 
         }
     }

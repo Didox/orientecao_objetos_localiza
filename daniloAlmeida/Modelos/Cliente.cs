@@ -12,14 +12,6 @@ namespace daniloAlmeida.Modelos
         public void SalvarBanco(){
             Console.WriteLine("salvo no banco");
         }
-
-        public List<string> BuscarNoBanco(string nome? = "teste"){
-            
-            return nomes[].ToList;
-        } 
-
-        
-
-
+       
     }
 }
