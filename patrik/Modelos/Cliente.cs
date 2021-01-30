@@ -6,16 +6,16 @@ namespace Patrik.Modelos
         public int Id { get; set; }
         public string Nome { get; set; }
 
-        public static List<Cliente> listaDeClientes = new List<Cliente>();
+        private static List<Cliente> ListaDeClientes = new List<Cliente>();
 
-        public void save()
+        public void Salvar()
         {
-          Cliente.listaDeClientes.Add(this);
+          Cliente.ListaDeClientes.Add(this);
         }
 
-        public static List<Cliente> listarClientes ()
+        public static List<Cliente> ListarClientes ()
         {
-          return listaDeClientes;
+          return ListaDeClientes;
         }
 
         public override string ToString()
