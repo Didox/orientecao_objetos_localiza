@@ -463,3 +463,5 @@ obj/
 .vscode
 
 .vscode/*
+
+.idea
