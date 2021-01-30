@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{9C90974F-03B5-47D0-8424-FBF61531BF22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIConsole", "UIConsole\UIConsole.csproj", "{B80AFD6A-B29B-42DC-9E3B-98422A5435C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{2D66A740-596F-415D-A837-071BC551D4A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C90974F-03B5-47D0-8424-FBF61531BF22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C90974F-03B5-47D0-8424-FBF61531BF22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C90974F-03B5-47D0-8424-FBF61531BF22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C90974F-03B5-47D0-8424-FBF61531BF22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B80AFD6A-B29B-42DC-9E3B-98422A5435C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80AFD6A-B29B-42DC-9E3B-98422A5435C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80AFD6A-B29B-42DC-9E3B-98422A5435C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80AFD6A-B29B-42DC-9E3B-98422A5435C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D66A740-596F-415D-A837-071BC551D4A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D66A740-596F-415D-A837-071BC551D4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D66A740-596F-415D-A837-071BC551D4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D66A740-596F-415D-A837-071BC551D4A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50E8C85D-803A-4015-B383-026D7297EC3B}
+	EndGlobalSection
+EndGlobal
