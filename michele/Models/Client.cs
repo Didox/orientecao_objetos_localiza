@@ -2,9 +2,20 @@ using System;
 using System.Collections.Generic;
 
 namespace Michele.Models {
+
   public class Client {
+
+    //Constantes são declaradas com todas as letras em maiusculos.
+
+    public const int BASIC = 1;
+    public const int PREMIUM = 2;
+
     private string name;
+
     public int Id {get; set;}
+
+    public int Tipo { get; set; }
+
     public string Name { 
         get
         {
@@ -15,7 +26,9 @@ namespace Michele.Models {
           this.name = value.ToUpper();
         }
     }
+
     public string Address { get; set; }
+
     public DateTime BirthDay { get; set;}
 
     public override string ToString()

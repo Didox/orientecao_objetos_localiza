@@ -12,6 +12,7 @@ namespace Michele
             client.BirthDay = new DateTime(1996,05,06);
             client.Name = "Michele de Freitas Ribeiro";
             client.Id = 123456;
+            client.Tipo = TipoCliente.Basic;
             var clientSearch = Client.SearchName("Michele de Freitas Ribeiro");
             Client.Save();
             Console.WriteLine(client);
