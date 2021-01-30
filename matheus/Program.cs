@@ -12,7 +12,10 @@ namespace matheus
             Cliente cliente = new Cliente();
             cliente.Id = 1;
             cliente.Nome = "Matheus Sinnis";
-            cliente.SalvarCliente(cliente);
+            cliente.Salvar();
+            
+            Cliente.Salvar(cliente);
+                
 
             List<Cliente> listaCliente = Cliente.RetonaListaCliente();
         }
