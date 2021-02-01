@@ -14,5 +14,9 @@ namespace Database
 
         }
 
+        public static List<Dado> Todos(Dado iBase){
+            return new List<Dado>();
+        }
+
     }
 }
