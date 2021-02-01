@@ -15,6 +15,13 @@ namespace ConsoleApp
             carro.Modelo = "Virtus";
             
             carroService.Salvar(carro);
+
+            var listaDeCarros = carroService.ListarCarros<Carro>();
+            listaDeCarros.ForEach(carro => Console.WriteLine($"Carro: {carro.Marca} - {carro.Modelo}"));
+
+            var listaDeCarrosCasting = carroService.ListarCarros();
+            listaDeCarrosCasting.ForEach(carro => Console.WriteLine($"Carro: {((Carro)carro).Marca} - {((Carro)carro).Modelo}"));
+
         }
     }
 }
