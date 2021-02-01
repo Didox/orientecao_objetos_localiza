@@ -8,6 +8,5 @@ namespace Negocios
         {
             Console.WriteLine("Enviar SMS");
         }
-        
     }
 }
