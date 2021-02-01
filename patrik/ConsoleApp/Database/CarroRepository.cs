@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace Database
 {
-    public class CarroService
+    public class CarroRepository
     {
-        public static void Salvar(IBase iBase)
+        public static void Salvar<T>(T generic)
         {
-            var campos = iBase.GetType().GetProperties();
+            var campos = generic.GetType().GetProperties();
 
-            var sql = $"insert into {iBase.GetType().Name.ToLower()}s values (";
+            var sql = $"insert into {generic.GetType().Name.ToLower()}s values (";
 
             List<string> colunasDb = new List<string>();
 
@@ -25,6 +25,16 @@ namespace Database
             sql += ")";
             
             Console.WriteLine(sql);
+        }
+
+        public static List<T> ListarCarros<T>()
+        {
+            return new List<T>();
+        }
+        
+        public static List<IBase> ListarCarros()
+        {
+            return new List<IBase>();
         }
     }
 }

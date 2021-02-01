@@ -3,7 +3,7 @@ using Database.Attributes;
 namespace Business.Models
 {
     [Model(Table = "customers")]
-    public class Customer : People
+    public sealed class Customer : People
     {
         [Column]
         public string Card { get; set; }
@@ -13,7 +13,7 @@ namespace Business.Models
             Card = card;
         }
 
-        public override string Details()
+        public sealed override string Details()
         {
             return $"{{ \"name\": \"{Name}\", \"card\": \"{Card}\" }}";
         }
