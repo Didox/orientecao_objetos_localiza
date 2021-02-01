@@ -1,8 +1,11 @@
+using System;
+
 namespace Negocios
 {
     public class Exemplo
     {
-        public void SalvarEx(){
+        public string exemploPai{get;set;}
+        public virtual void Salvar(){
             Console.WriteLine("Salvar do pai.");
         }
     }

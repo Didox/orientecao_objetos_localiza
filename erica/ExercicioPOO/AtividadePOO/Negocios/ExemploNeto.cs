@@ -1,12 +1,13 @@
+using System;
+
 namespace Negocios
 {
     public sealed class ExemploNeto : ExemploFilho
     {
         
-        public sealed override void SalvarSeladoNeto(){
-           // base.SalvarFilho();
-            base.SalvarEx();
+        /*public override void Salvar(){
             Console.WriteLine("Salvar do neto. - selado");
-        }
+            base.Salvar();
+        }*/
     }
 }

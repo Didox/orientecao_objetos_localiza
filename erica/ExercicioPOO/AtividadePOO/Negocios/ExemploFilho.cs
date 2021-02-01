@@ -1,10 +1,14 @@
+using System;
+
 namespace Negocios
 {
     public class ExemploFilho : Exemplo
     {
-        public void SalvarFilho(){
-            Console.WriteLine("Salvar filho");
-            base.SalvarEx();
+        public string exemploFilho{get;set;}
+
+        public sealed override void Salvar(){
+            Console.WriteLine("Salvar do filho");
+            base.Salvar();
         }
         
     }
