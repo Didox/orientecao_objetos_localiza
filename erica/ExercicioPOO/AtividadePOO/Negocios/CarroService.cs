@@ -5,12 +5,15 @@ namespace Negocio
 {
     public class CarroService
     {
-        public static void Salvar(Carro carro)
+        public static void Salvar<T>(T carro)
         {
-            //carro.Ano = 1;
-            Console.WriteLine("Estou salvando o carro");
+            DBServiceGenerics.Salvar(carro);
+            Console.WriteLine("Estou salvando o carro (com generics).");
+            //CarroDbService.Salvar(carro);
+        }
 
-            CarroDbService.Salvar(carro);
+        public static List<T> Todos<T>(){
+            return DBServiceGenerics.Todos<T>();
         }
     }
 }
