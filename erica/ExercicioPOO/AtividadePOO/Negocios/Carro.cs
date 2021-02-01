@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Database;
 
 namespace Negocio
@@ -14,9 +15,19 @@ namespace Negocio
 
         public string Descricao { get; set; }
 
-        public void Salvar()
+       /* public void Salvar()
         {
             CarroDBService.Salvar(this);
+        }*/
+
+         public override void Salvar()
+        {
+            DbServiceGenerics.Salvar<Carro>(this);
+        }
+
+         public static List<Dado> Todos()
+        {
+            return CarroDbService.Todos(new Carro());
         }
     }
 }
