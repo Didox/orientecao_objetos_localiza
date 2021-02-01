@@ -4,6 +4,7 @@ namespace Negocios
     {
         public void SalvarFilho(){
             Console.WriteLine("Salvar filho");
+            base.SalvarEx();
         }
         
     }
