@@ -6,7 +6,12 @@ namespace strategy
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           new Cliente(){
+             nome = "Erica";
+             cpf = "1234";
+             telefone = "1234";
+             email = "erica@email"
+           }.Salvar();
         }
     }
 }

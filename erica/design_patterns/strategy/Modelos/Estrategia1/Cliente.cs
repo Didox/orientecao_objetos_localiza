@@ -9,5 +9,9 @@ namespace strategy.Modelos.Estrategia1
         public string telefone {get;set}
         public string email {get; set;}
 
+        public List<Cliente> Salvar(){
+            Console.WriteLine("Salvando..");
+            return new List<Cliente>();
+        }
     }
 }
