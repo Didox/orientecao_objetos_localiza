@@ -10,7 +10,7 @@ namespace Bussines
 
         public static void Save(Car car)
         {
-            CarroDBService.Save(car);
+            CarDBService.Save(car);
         }
     }
 }
