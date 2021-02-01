@@ -5,12 +5,14 @@ namespace Database
 {
     public class CarroDbService
     {
-        public static void Salvar(IBase iBase)
+        // Implementando Generics
+        public static void Salvar<T>(T generic)
         {
-            var campos = iBase.GetType().GetProperties();
+            var tipo = generic.GetType();
+            var campos = generic.GetType().GetProperties();
 
+            string query = $"insert into {tipo.Name} values (";
             ICollection<string> colunas = new HashSet<string>();
-            string query = $"insert into {iBase.GetType().Name} values (";
 
             foreach (var campo in campos)
             {
@@ -22,5 +24,6 @@ namespace Database
 
             Console.WriteLine(query);
         }
+
     }
 }

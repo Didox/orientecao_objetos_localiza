@@ -2,10 +2,9 @@ using System;
 
 namespace Negocio.Modelos
 {
-    public class Aula : BaseAula
+    public sealed partial class Aula : BaseAula
     {
         private string _tema;
-
         private const string frasePadrao = "Um dos temas da aula foi: ";
         public string Tema
         {
@@ -22,10 +21,14 @@ namespace Negocio.Modelos
         {
             _tema = tema;
         }
-
-        public override void MostrarTemaAula()
+        public sealed override void MostrarTemaAula()
         {
             Console.WriteLine(this.Tema);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
 
     }
