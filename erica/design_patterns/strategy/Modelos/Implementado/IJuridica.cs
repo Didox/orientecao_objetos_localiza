@@ -1,6 +1,6 @@
 namespace strategy.Modelos.Implementado
 {
-    public class IJuridica
+    public class IJuridica : IPessoa
     {
         
     }

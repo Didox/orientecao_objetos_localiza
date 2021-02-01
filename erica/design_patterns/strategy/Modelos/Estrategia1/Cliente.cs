@@ -2,7 +2,7 @@ using System;
 
 namespace strategy.Modelos.Estrategia1
 {
-    public class Fisica
+    public class Cliente
     {
         public int id {get;set;}
         public string nome {get;set;}
