@@ -1,6 +1,6 @@
 namespace strategy.Modelos.Implementado
 {
-    public class IPessoa
+    public interface IPessoa
     {
         public int id {get;set;}
         public string nome {get;set;}

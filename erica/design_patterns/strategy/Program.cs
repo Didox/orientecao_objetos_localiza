@@ -10,7 +10,7 @@ namespace strategy
              nome = "Erica";
              cpf = "1234";
              telefone = "1234";
-             email = "erica@email"
+             email = "erica@email";
            }.Salvar();
         }
     }
