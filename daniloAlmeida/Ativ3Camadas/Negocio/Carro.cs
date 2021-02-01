@@ -7,7 +7,11 @@ namespace Negocio
         public int Id;
         public string Nome;
 
+        public void Salvar(){
+            //CarroDbServices.Salvar(this);
+
+            CarrosService.Salvar(this);
+        }
+
     }  
-
-
 }

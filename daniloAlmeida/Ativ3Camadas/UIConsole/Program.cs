@@ -7,12 +7,10 @@ namespace UIConsole
     {
         static void Main(string[] args)
         {
-            var carro = new Carro{
+            new Carro{
                 Id = 1,
                 Nome = "Danilo"
-            };
-
-            CarrosService.Salvar(carro);            
+            }.Salvar();            
             
             Console.WriteLine("Hello World!");
         }

@@ -7,7 +7,7 @@ namespace Negocio
     {
         public static void Salvar(Carro carro){
             Console.WriteLine("Estou salvando o carro");
-            CarroDbServices.Salvar(carro);
+            DbServicesGenerics.Salvar(carro);
         }        
     }
 }

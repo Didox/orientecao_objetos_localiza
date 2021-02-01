@@ -4,7 +4,7 @@ using DataBase;
 
 namespace DataBase
 {
-    public class CarroDbServices
+    public class DbServicesGenerics
     {
 
         public static void Salvar(IBase iBase){
