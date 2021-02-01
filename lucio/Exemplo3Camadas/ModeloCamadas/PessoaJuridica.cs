@@ -9,6 +9,7 @@ namespace ModeloCamadas
 {
   public class PessoaJuridica : Cliente
   {
+    [CamposPersistido(NomeColuna = "Cnpj_Cliente")]
     public int CNPJ { get; set; }
 
     public override void RetornaDadosCliente()

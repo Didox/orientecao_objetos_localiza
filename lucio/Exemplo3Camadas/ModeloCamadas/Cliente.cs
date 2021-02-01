@@ -7,10 +7,15 @@ using System.Threading.Tasks;
 
 namespace ModeloCamadas
 {
-  public class Cliente : Dados
-  {   
+  public partial class Cliente : BaseService
+  { 
+    [CamposPersistido(NomeColuna = "Cod_Cliente")]
     public int Codigo { get; set; }
+
+    [CamposPersistido(NomeColuna = "Nome_Cliente")]
     public string Nome { get; set; }
+
+    [CamposPersistido(NomeColuna = "Idade_Cliente")]
     public int Idade { get; set; }
 
     public Cliente()
@@ -24,20 +29,10 @@ namespace ModeloCamadas
       this.Idade = idadeCliente;
     }
 
-    public static string AlterarNomeParaCaixaAlta(string nome)
-    {
-      return nome.ToUpper();
-    }
-
     public virtual void RetornaDadosCliente()
     {
       Console.WriteLine($"Nome do Cliente: {Nome}");
     }
-
-    public override void Salvar()
-    {
-      ClienteDBService.Salvar(this);
-    }      
-    
+   
   }
 }

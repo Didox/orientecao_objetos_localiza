@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CamposPersistidoAttribute.cs" />
-    <Compile Include="ClienteDBService.cs" />
+    <Compile Include="BaseService.cs" />
     <Compile Include="Dados.cs" />
     <Compile Include="IBase.cs" />
     <Compile Include="PkAttibute.cs" />

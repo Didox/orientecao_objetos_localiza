@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carro.cs" />
+    <Compile Include="Carro2.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="ClienteValidator.cs" />
     <Compile Include="PessoaFisica.cs" />
     <Compile Include="PessoaJuridica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

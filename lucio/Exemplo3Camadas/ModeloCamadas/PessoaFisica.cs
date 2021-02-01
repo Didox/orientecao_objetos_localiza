@@ -9,7 +9,7 @@ namespace ModeloCamadas
 {
   public class PessoaFisica : Cliente
   {
-    [CamposPersistido]
+    [CamposPersistido(NomeColuna = "Cpf_Cliente")]
     public int CPF { get; set; }
 
     public PessoaFisica()
@@ -20,7 +20,9 @@ namespace ModeloCamadas
     {
       this.CPF = cpf;
     }
-    public override void RetornaDadosCliente()
+
+    //Método Selado
+    public sealed override void RetornaDadosCliente()
     {
       base.RetornaDadosCliente();
       Console.WriteLine($"CPF do Cliente: {CPF}");
