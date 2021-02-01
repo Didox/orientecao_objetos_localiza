@@ -16,6 +16,8 @@ namespace Console
                 Ano = 2021
             });
 
+            carro.SalvarHatch();
+
         }
     }
 }
