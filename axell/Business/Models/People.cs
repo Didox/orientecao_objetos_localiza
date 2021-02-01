@@ -2,7 +2,7 @@ using Database.Attributes;
 
 namespace Business.Models
 {
-    public class People
+    public partial class People
     {
         [Pk]
         public int Id { get; set; }

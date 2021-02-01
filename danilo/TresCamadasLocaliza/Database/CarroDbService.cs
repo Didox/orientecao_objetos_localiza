@@ -11,8 +11,11 @@ namespace Database
             var sql = Map.Builder(iBase);
 
             Console.WriteLine(sql);
-
         }
 
+        public static List<Dado> Todos(Dado iBase)
+        {
+            return new List<Dado>();
+        }
     }
 }

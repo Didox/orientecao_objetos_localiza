@@ -8,7 +8,7 @@ namespace Database.Repositories
 {
     public class BaseRepository
     {
-        private static string getTableName(object obj)
+        public static string getTableName<T>(T obj)
         {
             foreach (var attr in System.Attribute.GetCustomAttributes(obj.GetType()))
             {
@@ -22,7 +22,7 @@ namespace Database.Repositories
             return null;
         }
 
-        private static IEnumerable<PropertyInfo> getProperties(object obj)
+        public static IEnumerable<PropertyInfo> getProperties<T>(T obj)
         {
             return obj.GetType().GetProperties().Where(
                 prop => (
@@ -32,7 +32,7 @@ namespace Database.Repositories
             );
         }
 
-        private static string getAttributes(object obj)
+        public static string getAttributes<T>(T obj)
         {
             var attrs = "";
             var properties = getProperties(obj);
@@ -45,7 +45,7 @@ namespace Database.Repositories
             return attrs.Substring(0, attrs.Length - 2);
         }
 
-        private static string getValues(object obj)
+        public static string getValues<T>(T obj)
         {
             var values = "";
             var properties = getProperties(obj);
@@ -58,13 +58,18 @@ namespace Database.Repositories
             return values.Substring(0, values.Length - 2);
         }
 
-        public static void Save(object obj)
+        public static void Save<T>(T obj)
         {
             var tableName = getTableName(obj);
             var attrsStr = getAttributes(obj);
             var attrsValues = getValues(obj);
             var sql = $"INSERT INTO {tableName} ({attrsStr}) VALUES ({attrsValues});";
             Console.WriteLine(sql);
+        }
+
+        public static List<T> List<T>()
+        {
+            return new List<T>();
         }
     }
 }
