@@ -9,6 +9,15 @@ namespace Business.Services
         {
             CarroDbService.Salvar(carro);
         }
+
         
+
+        public void SalvarHatch()
+        {
+            var carro = new Hatch();
+            carro.Salvar();
+            carro.SalvarVirtual();
+        }
+
     }
 }
