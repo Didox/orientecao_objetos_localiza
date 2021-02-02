@@ -1,4 +1,5 @@
-using System;
+using System.Collections.Generic;
+using Database;
 
 namespace Negocio
 {
@@ -6,7 +7,17 @@ namespace Negocio
     {
         public void Salvar(Carro carro)
         {
-            Database.CarroService.Salvar(carro);
+            Database.CarroRepository.Salvar(carro);
+        }
+        
+        public List<T> ListarCarros<T>()
+        {
+            return Database.CarroRepository.ListarCarros<T>();
+        }
+        
+        public List<IBase> ListarCarros()
+        {
+            return Database.CarroRepository.ListarCarros();
         }
     }
 }
