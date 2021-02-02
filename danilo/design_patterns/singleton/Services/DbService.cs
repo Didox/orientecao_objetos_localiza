@@ -3,7 +3,7 @@ using System;
 
 namespace Strategy.Services
 {
-  public class DbService
+  public class DbService : IService
   {
     private DbService()
     {
@@ -20,7 +20,7 @@ namespace Strategy.Services
       Console.WriteLine("Fechando conexão");
     }
 
-    public void Salvar<T>(T obj)
+    public void Enviar<T>(T obj)
     {
       Console.WriteLine($"Salvando o tipo {obj.GetType().Name}");
     }

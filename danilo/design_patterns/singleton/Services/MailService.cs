@@ -4,7 +4,7 @@ using System;
 
 namespace Strategy.Services
 {
-  public class EmailService
+  public class EmailService : IService
   {
     private EmailService()
     {

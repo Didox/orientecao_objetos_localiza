@@ -3,7 +3,7 @@ using System;
 
 namespace Strategy.Services
 {
-  public class SmsService
+  public class SmsService : IService
   {
     private SmsService(){}
 
