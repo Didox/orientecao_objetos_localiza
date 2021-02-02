@@ -8,8 +8,11 @@ namespace Singleton.Service.AutenticateService.cs
         private static AutenticateService Instance;
         private AutenticateService()
         {
-            Instance == null ? Instance = new AutenticateService() : Instance;
         }
-   
+        public static AutenticateService getInstance()
+        {
+          return Instance == null ? Instance = new AutenticateService() : Instance;
+        }
+  
     }
 }
