@@ -3,7 +3,7 @@ using System.IO.Pipes;
 using System.Net.WebSockets;
 using System.Net.Http;
 using System;
-using daniloAlmeida.Modelos;
+using AtivPOO.daniloAlmeida.Modelos;
 
 namespace DaniloAlmeida
 {
