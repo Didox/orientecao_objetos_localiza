@@ -1,4 +1,7 @@
 ﻿using System;
+using singleton.Dominio.Entidade;
+using singleton.Dominio.UseCase;
+using singleton.Service;
 
 namespace singleton
 {
