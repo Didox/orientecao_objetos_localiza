@@ -6,7 +6,7 @@ namespace solid
     {
         static void Main(string[] args)
         {
-            new Cliente(){
+            Cliente cliente = new Cliente(){
                 id = 1;
                 nome = "Érica";
                 email = "erica@email";
