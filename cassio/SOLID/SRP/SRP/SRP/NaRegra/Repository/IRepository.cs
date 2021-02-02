@@ -7,6 +7,6 @@ namespace SRP.NaRegra.Repository
 {
     public interface IRepository 
     {
-        public void Salvar(IAula aula);
+        public void Salvar<T>(T obj);
     }
 }
