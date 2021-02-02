@@ -1,6 +1,7 @@
 ﻿using System;
+using Strategy;
 
-namespace danilo
+namespace Strategy
 {
     class Program
     {
