@@ -1,5 +1,9 @@
-﻿public interface IBase
+﻿namespace Database
 {
-    int Id { get; set; }
+    public interface IBase
+    {
+        int Id { get; set; }
 
+        void Salvar();
+    }
 }
