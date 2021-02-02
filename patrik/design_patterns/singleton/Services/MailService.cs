@@ -1,7 +1,6 @@
 using System;
-using singleton.Services;
 
-namespace singleton.Modelos
+namespace singleton.Services
 {
     public class MailService
     {

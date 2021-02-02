@@ -1,6 +1,6 @@
 using System;
 
-namespace singleton.Modelos
+namespace singleton.Services
 {
     public class SmsService
     {
