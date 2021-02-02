@@ -1,3 +1,5 @@
+using System;
+
 namespace strategy.Modelos.Estrategia1
 {
     public enum TipoCliente

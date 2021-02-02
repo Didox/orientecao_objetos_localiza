@@ -8,6 +8,7 @@ namespace strategy.Modelos.Estrategia1
         public string nome {get;set;}
         public string telefone {get;set}
         public string email {get; set;}
+        public TipoCliente tipoCliente {get;set;}
 
         public List<Cliente> Salvar(){
             Console.WriteLine("Salvando..");
