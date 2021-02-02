@@ -10,6 +10,5 @@ namespace singleton.Modelos.UseCase
             MailService.Instancia().Enviar(entidade);
             SmsService.Instancia().Enviar(entidade);
         }
-        
     }
 }
