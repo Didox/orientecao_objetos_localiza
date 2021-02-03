@@ -1,6 +1,6 @@
 namespace e_commerce
 {
-    public class EnviaSms
+    public class EnviaSms : IService
     {
         
     }

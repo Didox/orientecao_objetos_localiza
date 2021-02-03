@@ -1,6 +1,6 @@
 namespace e_commerce
 {
-    public class Pagamento
+    public class Pagamento : IService
     {
         
     }
