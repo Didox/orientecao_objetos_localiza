@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Solid
 {
@@ -24,9 +24,31 @@ namespace Solid
             smsService.SendTo(customer2);
         }
 
+        static void OpenClosed()
+        {
+            // Wrong
+            var customer1 = new OpenClosed.BreakingTheRule.Customer();
+            customer1.CustomerType = Solid.OpenClosed.BreakingTheRule.CustomerType.Legal;
+            Console.WriteLine($"Wrong open closed customer value: {customer1.GetValue()}");
+            customer1.CustomerType = Solid.OpenClosed.BreakingTheRule.CustomerType.AutonomousLegal;
+            Console.WriteLine($"Wrong open closed customer value: {customer1.GetValue()}");
+            customer1.CustomerType = Solid.OpenClosed.BreakingTheRule.CustomerType.NonLegal;
+            Console.WriteLine($"Wrong open closed customer value: {customer1.GetValue()}");
+
+            // Better
+            OpenClosed.Solution.ICustomer customer2 = new OpenClosed.Solution.LegalCustomer();
+            Console.WriteLine($"Right open closed customer value: {customer2.GetValue()}");
+            customer2 = new OpenClosed.Solution.AutonomousLegalCustomer();
+            Console.WriteLine($"Right open closed customer value: {customer2.GetValue()}");
+            customer2 = new OpenClosed.Solution.NonLegalCustomer();
+            Console.WriteLine($"Right open closed customer value: {customer2.GetValue()}");
+        }
+
         static void Main(string[] args)
         {
             SingleResponsability();
+            Console.WriteLine("-----------------------");
+            OpenClosed();
         }
     }
 }
