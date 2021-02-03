@@ -40,6 +40,7 @@ namespace UIConsole
             {
                 EmailService.Enviar(pedido);
                 SmsService.Enviar(pedido);
+                PagamentoService.Pagar(pedido);
             }
 
         }

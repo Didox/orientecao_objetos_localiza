@@ -6,9 +6,9 @@ namespace Negocio
 {
     public class PagamentoService
     {
-        public static bool Enviar<T>(T dado)
+        public static bool Pagar<T>(T dado)
         {
-            //Envia SMS
+            //Gateway Pagamento
             return true;
         }
     }
