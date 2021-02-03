@@ -1,6 +1,5 @@
 ﻿using Negocio;
 using System;
-using Negocio;
 
 namespace AppOrientacaoObjeto
 {
@@ -16,6 +15,12 @@ namespace AppOrientacaoObjeto
                 Cor = "Prata",
                 Ano = 2012
             });
+
+            var grupoCliente = new GrupoCliente()
+            {
+                Nome = "Belo Horizonte"
+            };
+            NegocioService.Salvar(grupoCliente);
 
             Console.WriteLine("Hello World!");
         }

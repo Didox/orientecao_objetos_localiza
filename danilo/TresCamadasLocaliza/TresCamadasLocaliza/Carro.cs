@@ -1,10 +1,11 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using Database;
 
 namespace Negocio
 {
     [Tabela(Nome = "tbl_carros")]
-    public class Carro : Dado
+    public partial class Carro : Dado
     {
         [CampoPersistido(NomeColuna = "nome_carro")]
         public string Nome { get; set; }
@@ -16,9 +17,14 @@ namespace Negocio
 
         public string Descricao { get; set; }
 
-        public void Salvar()
+        public override void Salvar()
         {
-            CarroDbService.Salvar(this);
+            DbServiceGenerics.Salvar<Carro>(this);
+        }
+
+        public static List<Dado> Todos()
+        {
+            return CarroDbService.Todos(new Carro());
         }
     }
 }
