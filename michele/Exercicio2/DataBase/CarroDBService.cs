@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace DataBase
@@ -8,18 +9,7 @@ namespace DataBase
     {
         public static void Salvar(IBase carro)
         {
-            var sql = $"insert into {carro.GetType().Name.ToLower()}s ( ";
-
-            var campos = carro.GetType().GetProperties();
-            var camposTabela = new List<string>();
-
-            foreach( var campo in campos)
-            {
-                camposTabela.Add(campo.Name);
-            }
-
-            sql += string.Join(",", camposTabela);
-            sql += ")";
+            var sql = Map.Builder(carro);
             Console.WriteLine(sql);
         }
     }
