@@ -14,5 +14,7 @@ namespace Perfistencia.Domain.Entities
 
     [Fields(ColumnName = "phone")]
     public string Phone {get;set;}
+
+    public CustomerType CustomerType {get;set;}
   }
 }

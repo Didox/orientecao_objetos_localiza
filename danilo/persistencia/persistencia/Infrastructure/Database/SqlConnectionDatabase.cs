@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace Perfistencia.Infrastructure.Database
 {
-  public class SqlConnectionDatabase<T> : IRelationalDatabase<T> where T : class
+  public class SqlConnectionDatabase<T> : IDatabase<T> where T : class
   {
     public SqlConnectionDatabase()
     {

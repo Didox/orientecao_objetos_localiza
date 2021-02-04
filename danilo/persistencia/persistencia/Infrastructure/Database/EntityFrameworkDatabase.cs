@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 
 namespace Perfistencia.Infrastructure.Database
 {
-  public class EntityFrameworkDatabase<T> : IRelationalDatabase<T> where T : class
+  public class EntityFrameworkDatabase<T> : IDatabase<T> where T : class
   {
     public void Save(T obj)
     {
