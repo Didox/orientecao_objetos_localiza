@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="SOLID\" />
+    <Folder Include="SOLID\SRP\" />
+    <Folder Include="SOLID\SRP\QuebrandoRegra\" />
+    <Folder Include="SOLID\SRP\Solucao\" />
+    <Folder Include="SOLID\OCP\" />
+    <Folder Include="SOLID\OCP\QuebrandoRegra\" />
+    <Folder Include="SOLID\OCP\Solucao\" />
+    <Folder Include="SOLID\OCP\SolucaoAbstracao\" />
+    <Folder Include="SOLID\LSP\" />
+    <Folder Include="SOLID\LSP\QuebrandoRegra\" />
+    <Folder Include="SOLID\LSP\Solucao\" />
+    <Folder Include="SOLID\ISP\" />
+    <Folder Include="SOLID\ISP\QuebrandoRegra\" />
+    <Folder Include="SOLID\ISP\Solucao\" />
+    <Folder Include="SOLID\DIP\" />
+    <Folder Include="SOLID\DIP\QuebrandoRegra\" />
+    <Folder Include="SOLID\DIP\Solucao\" />
+    <Folder Include="Generics\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+</Project>
