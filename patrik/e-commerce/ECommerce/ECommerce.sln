@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce", "ECommerce\ECommerce.csproj", "{4A396B38-A306-4AAE-9C74-662BA4522FFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BancoDeDados", "BancoDeDados\BancoDeDados.csproj", "{CF6BDDD6-0632-46FA-A169-B40A88F74D8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{EC6D5AA2-689E-4FCD-9606-B9B59471C921}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A396B38-A306-4AAE-9C74-662BA4522FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A396B38-A306-4AAE-9C74-662BA4522FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A396B38-A306-4AAE-9C74-662BA4522FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A396B38-A306-4AAE-9C74-662BA4522FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6BDDD6-0632-46FA-A169-B40A88F74D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6BDDD6-0632-46FA-A169-B40A88F74D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6BDDD6-0632-46FA-A169-B40A88F74D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6BDDD6-0632-46FA-A169-B40A88F74D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC6D5AA2-689E-4FCD-9606-B9B59471C921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC6D5AA2-689E-4FCD-9606-B9B59471C921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6D5AA2-689E-4FCD-9606-B9B59471C921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC6D5AA2-689E-4FCD-9606-B9B59471C921}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

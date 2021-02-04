@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -12,10 +12,11 @@ namespace Database
 
             Console.WriteLine(sql);
         }
-
-        public static List<Dado> Todos(Dado iBase)
+      
+      public static List<Dado> Todos(Dado iBase)
         {
             return new List<Dado>();
         }
+
     }
 }
