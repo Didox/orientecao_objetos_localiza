@@ -1,0 +1,28 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{2B561658-30B5-425B-8D96-8106FDBDF5C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11809651-649B-49AD-BCEE-EAECDA2EE015}"
+	ProjectSection(SolutionItems) = preProject
+		.gitinore = .gitinore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testes", "Testes\Testes.csproj", "{0D4B4C15-6362-490B-A50E-A9F63E0FC1AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B561658-30B5-425B-8D96-8106FDBDF5C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B561658-30B5-425B-8D96-8106FDBDF5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B561658-30B5-425B-8D96-8106FDBDF5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B561658-30B5-425B-8D96-8106FDBDF5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D4B4C15-6362-490B-A50E-A9F63E0FC1AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D4B4C15-6362-490B-A50E-A9F63E0FC1AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D4B4C15-6362-490B-A50E-A9F63E0FC1AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D4B4C15-6362-490B-A50E-A9F63E0FC1AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
