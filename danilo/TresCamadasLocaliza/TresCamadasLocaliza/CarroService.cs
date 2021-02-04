@@ -1,16 +1,19 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using Database;
 
 namespace Negocio
 {
     public class CarroService
     {
-        public static void Salvar(Carro carro)
+        public static List<Carro> Todos()
         {
-            //carro.Ano = 1;
-            Console.WriteLine("Estou salvando o carro");
-
-            CarroDbService.Salvar(carro);
+            var carros = DbServiceGenerics.Todos<Carro>();
+            foreach(var carro in carros)
+            {
+                carro.Nome += "- Danilo";
+            }
+            return carros;
         }
     }
 }

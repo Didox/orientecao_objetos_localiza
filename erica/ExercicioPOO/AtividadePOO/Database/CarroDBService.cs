@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
-public class CarroDBService
+namespace Database
 {
-    public static void Salvar(IBase iBase) {
+    public class CarroDbService
+    {
+        public static void Salvar(IBase iBase)
+        {
+            var sql = Map.Builder(iBase);
 
-        Console.Write("Salvando carro.");
-
-        var campos = iBase.GetType().GetProperties();
-
-        List<String> colunas = new List<string>();
-        string sql = $"insert into{iBase.GetType().Name} values(";
-
-        foreach(var campo in campos) {
-            colunas.Add(campo.Name);
+            Console.WriteLine(sql);
 
         }
-        sql += string.Join(",", colunas.ToArray());
-        sql += ")";
-    
-    }
 
+        public static List<Dado> Todos(Dado iBase){
+            return new List<Dado>();
+        }
+
+    }
 }
