@@ -8,7 +8,7 @@ namespace persistencia
     {
         static void Main(string[] args)
         {
-            new DapperDatabase<Customer>().Save(new Customer()
+            new EntityFrameworkDatabase<Customer>().Save(new Customer()
             {
                 Name = "Danilo novo Dapper",
                 Phone = "(11)99999-9999"

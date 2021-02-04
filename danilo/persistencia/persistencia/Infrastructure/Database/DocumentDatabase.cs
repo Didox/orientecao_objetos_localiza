@@ -29,7 +29,7 @@ namespace Perfistencia.Infrastructure.Database
       documento<T>().InsertOne(obj);
     }
 
-    public List<T> All()
+    public List<T> All(string sqlWhere = null)
     {
       return documento<T>().AsQueryable().ToList();
     }

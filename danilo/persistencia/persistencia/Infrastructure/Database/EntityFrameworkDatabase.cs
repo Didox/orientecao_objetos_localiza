@@ -13,7 +13,7 @@ namespace Perfistencia.Infrastructure.Database
       context.SaveChanges();
     }
 
-    public List<T> All()
+    public List<T> All(string sqlWhere = null)
     {
       throw new Exception("Falta fazer");
     }
