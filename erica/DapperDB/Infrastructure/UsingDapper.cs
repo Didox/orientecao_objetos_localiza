@@ -21,7 +21,10 @@ namespace DapperDB.Infrastructure
 
     }
     public void Remove(T obj){ //deleta
-
+    using (var connection = My.ConnectionFactory()){
+    connection.Open();
+    var isSuccess = connection.Delete(new Invoice {InvoiceID = $"{obj.GetType().GetProperties()}s"});
+    }
     }
 }
 }
