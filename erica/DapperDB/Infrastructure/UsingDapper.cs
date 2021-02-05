@@ -7,27 +7,21 @@ namespace DapperDB.Infrastructure
     public class UsingDapper<T> : IDatabase<T> where T : class
     {
     public SqlConnectionDatabase(){
-      this.connectionString = "Server=localhost;Database=exemploDapper;Uid=sa;Pwd=";
+      this.connectionString = "Server=localhost;Database=master;Trusted_Connection=True;";
       }
     private string connectionString;
-
-    public void Save(T obj)
-    {
+    public void Save(T obj){ //insere
       DapperPlusManager.Entity<T>().Table($"{obj.GetType().Name}s");
-      
-      using (var connection = new SqlConnection(connectionString))
-      {
+      using (var connection = new SqlConnection(connectionString)){
          connection.BulkInsert(new List<T>() { obj });
-      }	
+         }
     }
 
-    public List<T> All(string sqlWhere = null)
-    {
-      throw new Exception("Falta fazer");
+    public List<T> All(string sqlWhere = null){ //lista
+
     }
-    public void Remove(T obj)
-    {
-      throw new Exception("Falta fazer");
+    public void Remove(T obj){ //deleta
+
     }
-    }
+}
 }
