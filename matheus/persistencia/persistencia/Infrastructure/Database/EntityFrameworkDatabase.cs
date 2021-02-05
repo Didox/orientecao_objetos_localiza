@@ -23,7 +23,14 @@ namespace Perfistencia.Infrastructure.Database
 
         public List<T> All(string sqlWhere = null)
         {
-            return Db.Set<T>().ToList();
+            var dado = Activator.CreateInstance<T>();
+            var nome = $"{dado.GetType().Name.ToLower()}s";
+            var tabela = dado.GetType().GetCustomAttribute<TableAttribute>();
+            if (tabela != null && !string.IsNullOrEmpty(tabela.Name))
+            {
+                nome = tabela.Name;
+            }
+            return Db.Set<T>().FromSqlRaw($"SELECT * FROM ${nome} {sqlWhere}").ToList();
         }
         public void Remove(T obj)
         {
