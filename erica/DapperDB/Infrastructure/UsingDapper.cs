@@ -17,14 +17,18 @@ namespace DapperDB.Infrastructure
          }
     }
 
-    public List<T> All(string sqlWhere = null){ //lista
+    public List<T> All(string sqlWhere = null){ //lista todos
+        using (var connection = My.ConnectionFactory()){
+        connection.Open();
+        var invoices = connection.GetAll<Invoice>().ToList();
+        }
+    }
 
-    }
-    public void Remove(T obj){ //deleta
-    using (var connection = My.ConnectionFactory()){
-    connection.Open();
-    var isSuccess = connection.Delete(new Invoice {InvoiceID = $"{obj.GetType().GetProperties()}s"});
-    }
+    public void Remove(T obj){ //deleta 1
+        using (var connection = My.ConnectionFactory()){
+        connection.Open();
+        var isSuccess = connection.Delete(new Invoice {InvoiceID = $"{obj.GetType().GetProperties()}s"});
+        }
     }
 }
 }

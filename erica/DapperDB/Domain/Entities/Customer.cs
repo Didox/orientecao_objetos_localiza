@@ -1,8 +1,9 @@
 namespace DapperDB.Domain.Entities
 {
+    [Table("Customer")]
     public class Customer
     {
-        [Pk(Name="id")]
+        [Key]
         public int id { get; set; }
 
         [Fields(ColumnName = "name")]
