@@ -11,5 +11,6 @@ namespace DapperDB.Domain.Entities
         public string email { get; set; }
         [Fields(ColumnName = "phone")]
         public string phone { get; set; }
+        public CustomerType CustomerType {get;set;}
     }
 }
