@@ -45,6 +45,8 @@ namespace DapperDB.Infrastructure
       return list;
     }
 
+    //lista Dapper
+    //connection.Query<Invoice>(sql, new {Kind = new[] {InvoiceKind.StoreInvoice, InvoiceKind.WebInvoice}}).ToList();
     public void Update(T obj){ //alterando
       using (SqlConnection connection = new SqlConnection(connectionString)){
         var queryString = GenericMap.BuilderUpdate(obj);
