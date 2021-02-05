@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Perfistencia.Domain.Entities;
 using Perfistencia.Infrastructure.Database;
 
