@@ -37,5 +37,13 @@ namespace DapperDB.Infrastructure
         var isSuccess = connection.Delete(new Customer {id = $"{obj.GetType().GetProperties()}s"});
         }
     }
+
+    public void Update(T obj){ //update1
+        using (var connection = My.ConnectionFactory()){
+            connection.Open();
+            var isSuccess = connection.Update(new Customer { id = $"{obj.GetType().GetProperties()}s",
+             name = "Erica Viana"});
+            }
+    }
 }
 }
