@@ -6,7 +6,7 @@ namespace DapperDB.Infrastructure
     public class SqlConnectDb<T> : IDatabase<T> where T : class
     {
     public SqlConnectionDatabase(){
-      this.connectionString = "Server=localhost;Database=exemploDapper;Uid=sa;Pwd=admin";
+      this.connectionString = "Server=localhost;Database=exemploDapper;Uid=sa;Pwd=";
       }
 
     private string connectionString;
