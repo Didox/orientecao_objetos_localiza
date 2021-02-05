@@ -11,23 +11,30 @@ namespace DapperDB.Infrastructure
       }
     private string connectionString;
     public void Save(T obj){ //insere
-      DapperPlusManager.Entity<T>().Table($"{obj.GetType().Name}s");
+      DapperPlusManager.Entity<T>().Table($"{obj.GetType().Name}s"); //esse utiliza dapper plus
       using (var connection = new SqlConnection(connectionString)){
          connection.BulkInsert(new List<T>() { obj });
          }
     }
 
-    public List<T> All(string sqlWhere = null){ //lista todos
+    public List<T> All(string sqlWhere = null){ //lista todos - esse utiliza dapper contrib
         using (var connection = My.ConnectionFactory()){
         connection.Open();
-        var invoices = connection.GetAll<Invoice>().ToList();
+        var costumers = connection.GetAll<Invoice>().ToList();
+        }
+    }
+
+   public List<T> Get(string sqlWhere = null){ //lista 1
+   using (var connection = My.ConnectionFactory()){
+        connection.Open();
+        var customer = connection.Get<Customer>(1);
         }
     }
 
     public void Remove(T obj){ //deleta 1
         using (var connection = My.ConnectionFactory()){
         connection.Open();
-        var isSuccess = connection.Delete(new Invoice {InvoiceID = $"{obj.GetType().GetProperties()}s"});
+        var isSuccess = connection.Delete(new Customer {id = $"{obj.GetType().GetProperties()}s"});
         }
     }
 }
