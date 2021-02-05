@@ -26,13 +26,14 @@ namespace DapperDB.Infrastructure
       }
     }
 
-    public List<T> All(string SqlWhere = null){ //select-lista
+    public List<T> All(string SqlWhere = null){ //select *
       var list = new List<T>();
       using (SqlConnection connection = new SqlConnection(connectionString)){
         var queryString = GenericMap.BuilderSelect<T>(SqlWhere);
         SqlCommand command = new SqlCommand(queryString, connection);
         command.CommandType = System.Data.CommandType.Text;
         command.Connection.Open();
+
         using (SqlDataReader dr = command.ExecuteReader()){
           while (dr.Read()){
             var instance = Activator.CreateInstance(typeof(T));
@@ -40,6 +41,8 @@ namespace DapperDB.Infrastructure
             list.Add((T)instance);
           }
         }
+      }
+      return list;
     }
 
     public void Update(T obj){ //alterando
@@ -58,5 +61,24 @@ namespace DapperDB.Infrastructure
       }
     }
 
+    private void fill(object modelo, SqlDataReader dr){
+        foreach (var p in modelo.GetType().GetProperties()){
+            try{
+                if (dr[p.Name] == DBNull.Value) continue;
+                p.SetValue(modelo, dr[p.Name]);
+            }
+            catch { }
+            }
+        }
+
+    public void Remove(T obj){ //delete
+      using (SqlConnection connection = new SqlConnection(connectionString)){
+        var queryString = GenericMap.BuilderDelete(obj);
+        SqlCommand command = new SqlCommand(queryString, connection);
+        command.Connection.Open();
+        command.ExecuteNonQuery();
+      }
     }
+
+}
 }
