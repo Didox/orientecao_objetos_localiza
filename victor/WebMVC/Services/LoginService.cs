@@ -13,9 +13,9 @@ namespace WebMVC.Services
             userLogin.Add(new UserLogin(){Username = "victor",Password = "senha",Acesso = TipoDeAcesso.ADMIN});
             userLogin.Add(new UserLogin(){Username = "felipe",Password = "senha",Acesso = TipoDeAcesso.USUARIO});
             
-            string key = username + password;
+            string key = username.ToLower() + password;
             
-            UserLogin result = userLogin.Find(x => x.Username + x.Password == key);
+            UserLogin result = userLogin.Find(x => x.Username.ToLower() + x.Password == key);
 
             if (result is not null)
             {
