@@ -1,0 +1,12 @@
+@{
+
+  ViewData["Title"] = "Login";
+}
+<h1>@ViewData["Title"]</h1>
+<!-- Login Form -->
+<form action="/Home/Login" method="POST">
+  <input type="text" id="login" class="fadeIn second" name="Nome" placeholder="Usuário">
+  <input type="text" id="senha" class="fadeIn third" name="Senha" placeholder="Senha">
+  <input type="submit" class="fadeIn fourth" value="Log In">
+  <div>@ViewBag.erro</div>
+</form>
