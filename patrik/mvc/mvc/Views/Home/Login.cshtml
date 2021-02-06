@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+    <!-- Login Form -->
+    <form asp-controller="Home" asp-action="Logar">
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
