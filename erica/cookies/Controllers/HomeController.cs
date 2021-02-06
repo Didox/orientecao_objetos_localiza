@@ -18,8 +18,10 @@ namespace cookies.Controllers
             _logger = logger;
         }
 
+        [PrecisaEstarLogado]
         public IActionResult Index()
         {
+            ViewBag.valorSessao = this.HttpContext.Request.Cookies["Alunos"];
             return View();
         }
 
