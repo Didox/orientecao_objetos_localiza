@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using cookies.Models;
+using mvc_login.Models;
 
-namespace cookies.Controllers
+namespace mvc_login.Controllers
 {
     public class HomeController : Controller
     {
@@ -18,10 +18,8 @@ namespace cookies.Controllers
             _logger = logger;
         }
 
-        [PrecisaEstarLogado]
         public IActionResult Index()
         {
-            ViewBag.valorSessao = this.HttpContext.Request.Cookies["Alunos"];
             return View();
         }
 

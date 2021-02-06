@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Routing;
 
-namespace cookies.Infra
+namespace mvc_login.Infra
 {
     public class PrecisaEstarLogado : ActionFilterAttribute
     {

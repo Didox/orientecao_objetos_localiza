@@ -1,6 +1,6 @@
 using System;
 
-namespace cookies.Models
+namespace mvc_login.Models
 {
     public class ErrorViewModel
     {
