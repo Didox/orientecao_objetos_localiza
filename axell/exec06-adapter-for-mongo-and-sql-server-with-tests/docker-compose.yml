@@ -1,0 +1,80 @@
+version: "3.1"
+
+networks:
+  sql_server_api:
+    driver: bridge
+
+volumes:
+  sql_server_api_data:
+    driver: local
+  mongo_api_data:
+    driver: local
+
+services:
+  sqlserver-service:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver_db
+    working_dir: /usr/src/app
+    command: sh -c './sql-server-entrypoint.sh & /opt/mssql/bin/sqlservr'
+    restart: unless-stopped
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Str0ngP@ss
+    volumes:
+      - sql_server_api_data:/var/opt/mssql
+      - ./sql-server-entrypoint.sh:/usr/src/app/sql-server-entrypoint.sh
+      - ./setup.sql:/usr/src/app/setup.sql
+    networks:
+      - sql_server_api
+
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo_api_data:/data/db
+    networks:
+      - sql_server_api
+
+  mongo-express:
+    image: mongo-express
+    restart: unless-stopped
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+    networks:
+      - sql_server_api
+
+  app:
+    build: .
+    container_name: sql_server_api_app
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    volumes:
+      - .:/app
+    environment:
+      - SQL_SERVER_DB_HOST=sqlserver-service
+      - SQL_SERVER_DB_PORT=1433
+      - SQL_SERVER_DB_DATABASE=net_core_api_development
+      - SQL_SERVER_DB_USERNAME=SA
+      - SQL_SERVER_DB_PASSWORD=Str0ngP@ss
+      - MONGO_DB_HOST=mongo
+      - MONGO_DB_PORT=27017
+      - MONGO_DB_DATABASE=net_core_api_development
+      - MONGO_DB_USERNAME=root
+      - MONGO_DB_PASSWORD=example
+    depends_on:
+      - sqlserver-service
+      - mongo
+    networks:
+      - sql_server_api
