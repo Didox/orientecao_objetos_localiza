@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using webapp.Models;
@@ -34,20 +35,33 @@ namespace webapp.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string txtUserName, string txtPassword)
         {
-            if (txtUserName != "admin" || txtPassword != "123") return View();
+            var isLogged = (txtUserName == "admin" && txtPassword == "123") ||
+                           (txtUserName == "editor" && txtPassword == "123") ||
+                           (txtUserName == "user" && txtPassword == "123");
+            if (!isLogged) return View();
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, txtUserName)
+                new Claim(ClaimTypes.Name, txtUserName),
+                new Claim(ClaimTypes.Role, "User"),
             };
 
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            if (txtUserName == "editor" && txtPassword == "123")
+                claims.Add(new Claim(ClaimTypes.Role, "Editor"));
+
+            if (txtUserName == "admin" && txtPassword == "123")
+                claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+
+            var identity = new ClaimsIdentity(
+                claims, CookieAuthenticationDefaults.AuthenticationScheme,
+                ClaimTypes.Name, ClaimTypes.Role
+            );
             var principal = new ClaimsPrincipal(identity);
             var props = new AuthenticationProperties();
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, props);
 
-            return RedirectToAction("Index", "Employee");
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
@@ -57,6 +71,7 @@ namespace webapp.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin,Editor")]
         public IActionResult Privacy()
         {
             return View();
