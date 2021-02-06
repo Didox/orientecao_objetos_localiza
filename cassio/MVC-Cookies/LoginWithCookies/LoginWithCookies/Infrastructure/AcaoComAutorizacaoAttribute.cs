@@ -8,7 +8,7 @@ namespace LoginWithCookies.Controllers
     internal class AcaoComAutorizacaoAttribute : ActionFilterAttribute
     {
 
-        public string Role { get; set; }
+        public string RoleForAuthorization { get; set; }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -19,70 +19,35 @@ namespace LoginWithCookies.Controllers
             }
             else
             {
-                if (Role == "Administrador")
+                foreach (var cookie in filterContext.HttpContext.Request.Cookies)
                 {
-                    foreach (var cookie in filterContext.HttpContext.Request.Cookies)
+                    if (cookie.Key == "Usuario")
                     {
-                        if (cookie.Key == "Usuario")
-                        {
-                            var usuario = JsonConvert.DeserializeObject<Usuario>(cookie.Value);
+                        var usuario = JsonConvert.DeserializeObject<Usuario>(cookie.Value);
 
-                            if (usuario.Role == Roles.administrador)
-                            {
-                                usuario.Authorized = true;
-                                return;
-                            }
+                        if (usuario.Role == Roles.administrador && RoleForAuthorization == "Administrador")
+                        {
+                            usuario.Authorized = true;
+                            return;
+                        }
+
+                        if (usuario.Role == Roles.editor && RoleForAuthorization == "Editor")
+                        {
+                            usuario.Authorized = true;
+                            return;
+                        }
+
+                        if (usuario.Role == Roles.estagiario && RoleForAuthorization == "Estagiario")
+                        {
+                            usuario.Authorized = true;
+                            return;
                         }
                     }
-
-                    filterContext.HttpContext.Response.Redirect("/Home/Login");
-                    return;
                 }
 
-                if (Role == "Editor")
-                {
-                    foreach (var cookie in filterContext.HttpContext.Request.Cookies)
-                    {
-                        if (cookie.Key == "Usuario")
-                        {
-                            var usuario = JsonConvert.DeserializeObject<Usuario>(cookie.Value);
-
-                            if (usuario.Role == Roles.editor)
-                            {
-                                usuario.Authorized = true;
-                                return;
-                            }
-                        }
-                    }
-
-                    filterContext.HttpContext.Response.Redirect("/Home/Login");
-                    return;
-
-                }
-
-                if (Role == "Estagiario")
-                {
-                    foreach (var cookie in filterContext.HttpContext.Request.Cookies)
-                    {
-                        if (cookie.Key == "Usuario")
-                        {
-                            var usuario = JsonConvert.DeserializeObject<Usuario>(cookie.Value);
-
-                            if (usuario.Role == Roles.estagiario)
-                            {
-                                usuario.Authorized = true;
-                                return;
-                            }
-                        }
-                    }
-
-                    filterContext.HttpContext.Response.Redirect("/Home/Login");
-                    return;
-
-                }
-
+                filterContext.HttpContext.Response.Redirect("/Home/Login");
+                return;
             }
-
 
             base.OnActionExecuting(filterContext);
         }
