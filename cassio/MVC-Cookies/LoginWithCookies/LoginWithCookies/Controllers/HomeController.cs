@@ -1,11 +1,11 @@
-﻿using LoginWithCookies.Models;
+﻿using LoginWithCookies.Enums;
+using LoginWithCookies.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
-using System.Text;
-using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace LoginWithCookies.Controllers
 {
@@ -25,46 +25,47 @@ namespace LoginWithCookies.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(Login obj)
+        public IActionResult Login(Usuario obj)
         {
-            if (!String.IsNullOrEmpty(obj.Usuario) && !String.IsNullOrEmpty(obj.Senha))
+
+            if (!String.IsNullOrEmpty(obj.Login) && !String.IsNullOrEmpty(obj.Senha))
             {
-                this.HttpContext.Response.Cookies.Append(obj.Usuario, Convert.ToBase64String(Encoding.ASCII.GetBytes(obj.Senha)), new CookieOptions
+                obj.Role = Roles.administrador;
+                var serializableObj = JsonConvert.SerializeObject(obj);
+                this.HttpContext.Response.Cookies.Append("Usuario", serializableObj, new CookieOptions
                 {
                     Expires = DateTimeOffset.UtcNow.AddSeconds(3600),
                     HttpOnly = true,
 
                 });
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Administrador));
             }
 
             return View();
         }
 
         [HttpGet]
-        [AcaoComAutorizacao]
+        [AcaoComAutorizacao(Role = "Editor")]
         public IActionResult Index()
         {
-
-            ViewBag.CookieValue = string.Empty;
-            if (this.HttpContext.Request.Cookies.Keys.Count > 0)
-            {
-                foreach (var httpCon in HttpContext.Request.Cookies)
-                {
-                    ViewBag.CookieValue += $@"Chave: {httpCon.Key} - Valor: {httpCon.Value} - ";
-                }
-            }
-
             return View();
         }
 
         [HttpGet]
-        [AcaoComAutorizacao]
-        public IActionResult Privacy()
+        [AcaoComAutorizacao(Role = "Estagiario")]
+        public IActionResult Estagiario()
         {
             return View();
         }
+
+        [HttpGet]
+        [AcaoComAutorizacao(Role = "Administrador")]
+        public IActionResult Administrador()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
