@@ -10,8 +10,8 @@ namespace mvc_login.Infra
     {
     public override void OnActionExecuting(ActionExecutingContext filterContext)
     {
-      if( string.IsNullOrEmpty(filterContext.HttpContext.Request.Cookies["Alunos"]) ){
-        filterContext.HttpContext.Response.Redirect("/Home/Privacy");
+      if( string.IsNullOrEmpty(filterContext.HttpContext.Request.Cookies["Login"]) ){
+        filterContext.HttpContext.Response.Redirect("/Home/Login");
         return;
       }
 
