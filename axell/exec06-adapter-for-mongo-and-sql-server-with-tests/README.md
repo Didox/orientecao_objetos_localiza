@@ -1,6 +1,6 @@
-# .NET Core API + Three Layer Architecture + Entity Framework + SQL Server + Docker-Compose
+# .NET Core API + Three Layer Architecture + Entity Framework + SQL Server + Mongo DB + Docker-Compose
 
-This is a project I constructed to learn .NET Core and practice the Three Layer Architecture on this technology.
+This is a project I constructed to learn .NET Core and practice the Three Layer Architecture and some design patterns on this technology.
 
 ## How to use ?
 
