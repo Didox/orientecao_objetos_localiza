@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,26 @@ namespace mvc.Controllers
 
             return View();
         }
+        
+        [PrecisaEstarLogado, Perfil(perfil = "Admin")]
+        public IActionResult Admin()
+        {
+            return View();
+        }
+        
+        [PrecisaEstarLogado, Perfil(perfil = "Admin,Editor")]
+        public IActionResult Editor()
+        {
+
+            return View();
+        }
+        
+        [PrecisaEstarLogado, Perfil(perfil = "Admin,Estagiario")]
+        public IActionResult Estagiario()
+        {
+
+            return View();
+        }
 
         public IActionResult Privacy(int time = 0)
         {
@@ -37,15 +58,35 @@ namespace mvc.Controllers
             return View();
         }
 
-        public void Logar()
+        private bool verificaUsuario(Login login)
         {
-            string login = this.HttpContext.Request.Form["login"];
-            string password = this.HttpContext.Request.Form["password"];
-            if (login != null)
+            var usuario = mvc.Infra.User.getUser(login.Email);
+
+            if (usuario != null)
             {
-                this.HttpContext.Response.Cookies.Append("Logado", "true", new CookieOptions
+                if (usuario.Email == login.Email && usuario.Password == login.Password)
                 {
-                    Expires = DateTimeOffset.UtcNow.AddSeconds(6000),
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        
+        public void Logar(Login login)
+        {
+            if ((!String.IsNullOrEmpty(login.Email) != null && !String.IsNullOrEmpty(login.Password) != null) && this.verificaUsuario(login))
+            {
+               var user = mvc.Infra.User.getUser(login.Email);
+               this.HttpContext.Response.Cookies.Append("Logado", "true", new CookieOptions
+                {
+                    Expires = DateTimeOffset.UtcNow.AddSeconds(60),
+                    HttpOnly = true,
+                });
+
+               this.HttpContext.Response.Cookies.Append("Auth", JsonSerializer.Serialize(user), new CookieOptions
+                {
+                    Expires = DateTimeOffset.UtcNow.AddSeconds(60),
                     HttpOnly = true,
                 });
                 this.HttpContext.Response.Redirect("/Home/Index");
