@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mvc_login.Models;
+using mvc_login.Infra;
 
 namespace mvc_login.Controllers
 {
@@ -18,16 +20,16 @@ namespace mvc_login.Controllers
             _logger = logger;
         }
 
+        [PrecisaEstarLogado]
         public IActionResult Index()
         {
             return View();
         }
-
+        [PrecisaEstarLogado]        
         public IActionResult Privacy()
         {
             return View();
         }
-
         public IActionResult Login()
         {
             return View();
