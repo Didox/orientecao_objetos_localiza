@@ -46,21 +46,21 @@ namespace LoginWithCookies.Controllers
         }
 
         [HttpGet]
-        [AcaoComAutorizacao(Role = "Editor")]
+        [AcaoComAutorizacao(RoleForAuthorization = "Editor")]
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpGet]
-        [AcaoComAutorizacao(Role = "Estagiario")]
+        [AcaoComAutorizacao(RoleForAuthorization = "Estagiario")]
         public IActionResult Estagiario()
         {
             return View();
         }
 
         [HttpGet]
-        [AcaoComAutorizacao(Role = "Administrador")]
+        [AcaoComAutorizacao(RoleForAuthorization = "Administrador")]
         public IActionResult Administrador()
         {
             return View();
