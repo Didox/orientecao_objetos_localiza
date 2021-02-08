@@ -20,19 +20,37 @@ namespace WebMVC.Controllers
             _logger = logger;
         }
 
-        [VerificaUsuarioLogado]
+        [Autenticacao]
         public IActionResult Index()
         {
             return View();
         }
 
-        [VerificaUsuarioLogado]
+        [Autenticacao]
         public IActionResult Privacy()
         {
             return View();
         }
 
         public IActionResult Login()
+        {
+            return View();
+        }
+
+        [Autenticacao, Autorizacao(perfil = TipoDeAcesso.ADMIN)]
+        public IActionResult Admin()
+        {
+            return View();
+        }
+
+        [Autenticacao, Autorizacao(perfil = TipoDeAcesso.USUARIO)]
+        public IActionResult Usuario()
+        {
+            return View();
+        }
+
+        [Autenticacao]
+        public IActionResult Autorizacao()
         {
             return View();
         }
