@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using api.Domain.ViewModel;
 using api.Domain.Entities;
 using api.Infra.Database;
-using Microsoft.EntityFrameworkCore;
 using api.Domain.UseCase.UserService;
 using api.Domain.Infra.Database;
 
