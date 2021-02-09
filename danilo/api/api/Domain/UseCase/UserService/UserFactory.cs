@@ -7,17 +7,19 @@ using api.Domain.ViewModel;
 using api.Infra.Database;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Domain.UseCase.UserService
+namespace api.Domain.UseCase.UserServices
 {
-    public class UserFactory
+    public class UserService
     {
-        public UserFactory(IUserRepository repository)
+        public UserService(IUserRepository repository)
         {
           this.repository = repository;
         }
         private IUserRepository repository;
         public async Task Save(User user)
         {
+          if(user.Role == null) user.Role = UserRole.Editor;
+          
           if(user.Id > 0)
           {
             var size = await repository.CountByIdAndEmail(user.Id, user.Email);

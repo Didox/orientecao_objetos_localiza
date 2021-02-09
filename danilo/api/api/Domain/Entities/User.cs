@@ -24,5 +24,7 @@ namespace api.Domain.Entities
         [Required]
         [MaxLength(100)]
         public string Password { get; set; }
+
+        public UserRole? Role { get; set; }
     }
 }

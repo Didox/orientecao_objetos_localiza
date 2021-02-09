@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using api.Domain.Models;
+using api.Domain.ViewModel;
 
-namespace unit_test.Domain.Models
+namespace unit_test.Domain.ViewModel
 {
     public class WelcomeTest
     {

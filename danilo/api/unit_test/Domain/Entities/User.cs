@@ -13,6 +13,7 @@ namespace unit_test.Domain.Entities
             Assert.AreEqual(user.Name, null);
             Assert.AreEqual(user.Email, null);
             Assert.AreEqual(user.Password, null);
+            Assert.AreEqual(user.Role, null);
         }
     }
 }

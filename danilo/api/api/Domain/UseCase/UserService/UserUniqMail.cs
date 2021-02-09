@@ -1,10 +1,10 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace api.Domain.UseCase.UserService
+namespace api.Domain.UseCase.UserServices
 {
   [Serializable]
-  internal class UserUniqMail : Exception
+  public class UserUniqMail : Exception
   {
     public UserUniqMail(string message) : base(message) { }
   }

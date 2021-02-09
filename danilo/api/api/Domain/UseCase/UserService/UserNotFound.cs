@@ -1,10 +1,10 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace api.Domain.UseCase.UserService
+namespace api.Domain.UseCase.UserServices
 {
   [Serializable]
-  internal class UserNotFound : Exception
+  public class UserNotFound : Exception
   {
     public UserNotFound(string message) : base(message) { }
   }

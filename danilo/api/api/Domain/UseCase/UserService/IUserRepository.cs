@@ -7,7 +7,7 @@ using api.Domain.ViewModel;
 using api.Infra.Database;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Domain.UseCase.UserService
+namespace api.Domain.UseCase.UserServices
 {
     public interface IUserRepository
     {
