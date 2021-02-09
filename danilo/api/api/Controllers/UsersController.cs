@@ -9,28 +9,27 @@ using api.Domain.Entities;
 using api.Infra.Database;
 using Microsoft.EntityFrameworkCore;
 using api.Domain.UseCase.UserService;
+using api.Domain.Infra.Database;
 
 namespace api.Controllers
 {
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly EntityContext _context;
+        private readonly UserFactory _userFactory;
         private readonly ILogger<HomeController> _logger;
 
         public UsersController(EntityContext context, ILogger<HomeController> logger)
         {
-            _context = context;
             _logger = logger;
+            _userFactory = new UserFactory(new UserRepository(context));
         }
 
         [HttpGet]
         [Route("/users")]
         public async Task<ICollection<UserView>> Index()
         {
-            return await _context.Users.Select( u => new UserView {
-                        Id = u.Id, Name = u.Name, Email = u.Email
-                    }).ToListAsync();
+            return await _userFactory.All();
         }
 
         [HttpPost]
@@ -39,7 +38,7 @@ namespace api.Controllers
         {
             try
             {
-                await new UserRepository(_context).Save(user);
+                await _userFactory.Save(user);
                 return StatusCode(201);
             }
             catch(UserUniqMail err)
@@ -57,7 +56,7 @@ namespace api.Controllers
             user.Id = id;
             try
             {
-                await new UserRepository(_context).Save(user);
+                await _userFactory.Save(user);
                 return StatusCode(204);
             }
             catch(UserUniqMail err)
@@ -74,7 +73,7 @@ namespace api.Controllers
         {
             try
             {
-                await new UserRepository(_context).Delete(id);
+                await _userFactory.Delete(id);
                 return StatusCode(204);
             }
             catch(UserEmptyId err)
