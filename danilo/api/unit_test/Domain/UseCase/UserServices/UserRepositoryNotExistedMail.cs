@@ -20,6 +20,12 @@ namespace unit_test.Domain.UseCase.UserServices
         return Task.FromResult<int>(0);
       }
 
+      public Task<User> FindByEmailAndPassword(string email, string password)
+      {
+        return Task.FromResult<User>(new User());
+      }
+
+
       public Task<int> CountByIdAndEmail(int id, string email)
       {
         return Task.FromResult<int>(0);

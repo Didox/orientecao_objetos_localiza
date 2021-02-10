@@ -30,19 +30,24 @@ namespace unit_test.Domain.UseCase.UserServices
           throw new NotImplementedException();
       }
 
-      public Task<User> FindById(int id)
-      {
-        return Task.FromResult<User>(new User());
-      }
-
-      public Task Save(User user)
-      {
-          throw new NotImplementedException();
-      }
-
-      public Task Update(User user)
-      {
-          throw new NotImplementedException();
-      }
+    public Task<User> FindByEmailAndPassword(string email, string password)
+    {
+      return Task.FromResult<User>(new User());
     }
+
+    public Task<User> FindById(int id)
+    {
+      return Task.FromResult<User>(new User());
+    }
+
+    public Task Save(User user)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task Update(User user)
+    {
+        throw new NotImplementedException();
+    }
+  }
 }

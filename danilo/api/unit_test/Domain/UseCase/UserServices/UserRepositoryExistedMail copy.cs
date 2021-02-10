@@ -9,6 +9,11 @@ namespace unit_test.Domain.UseCase.UserServices
 {
   public class UserRepositoryUserNotFound : IUserRepository
   {
+      public Task<User> FindByEmailAndPassword(string email, string password)
+      {
+        return Task.FromResult<User>(new User());
+      }
+
       public Task<ICollection<UserView>> All()
       {
         ICollection<UserView> list = new List<UserView>();
