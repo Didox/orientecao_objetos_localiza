@@ -15,6 +15,12 @@ using Newtonsoft.Json.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using api.Infra.Database;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using api.Domain.Entities;
 
 namespace api
 {
@@ -31,6 +37,8 @@ namespace api
         {
             JToken jAppSettings = JToken.Parse(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "appsettings.json")));
             services.AddDbContext<EntityContext>(options => options.UseSqlServer(jAppSettings["ConnectionString"].ToString()));
+
+            var key = Encoding.ASCII.GetBytes(jAppSettings["JwtToken"].ToString());
             
             services.AddControllersWithViews();
 
@@ -38,6 +46,37 @@ namespace api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "api", Version = "v1" });
+            });
+
+            services.AddMvc(config =>
+            {
+               var policy = new AuthorizationPolicyBuilder()
+                               .RequireAuthenticatedUser()
+                               .Build();
+               config.Filters.Add(new AuthorizeFilter(policy));
+            });
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+            services.AddAuthorization(options =>
+            {
+               options.AddPolicy(UserRole.Administrador.ToString(), policy => policy.RequireClaim(UserRole.Administrador.ToString()));
+               options.AddPolicy(UserRole.Editor.ToString(), policy => policy.RequireClaim(UserRole.Editor.ToString()));
             });
         }
 
@@ -54,6 +93,13 @@ namespace api
 
             app.UseRouting();
 
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

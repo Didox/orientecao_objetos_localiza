@@ -42,7 +42,10 @@ namespace api.Domain.Infra.Database
         public async Task<ICollection<UserView>> All()
         {
             return await context.Users.Select( u => new UserView {
-                        Id = u.Id, Name = u.Name, Email = u.Email, Role = u.Role.ToString()
+                        Id = u.Id, 
+                        Name = u.Name, 
+                        Email = u.Email, 
+                        Role = u.Role.ToString()
                     }).ToListAsync();
         }
         public async Task Delete(User user)
@@ -50,5 +53,10 @@ namespace api.Domain.Infra.Database
           context.Users.Remove(user);
           await context.SaveChangesAsync(); 
         }
+
+    public async Task<User> FindByEmailAndPassword(string email, string password)
+    {
+        return await context.Users.Where(u => u.Email == email && u.Password == password).FirstOrDefaultAsync();
     }
+  }
 }

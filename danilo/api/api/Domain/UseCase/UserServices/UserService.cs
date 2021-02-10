@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Domain.Authentication;
 using api.Domain.Entities;
 using api.Domain.ViewModel;
-using api.Infra.Database;
-using Microsoft.EntityFrameworkCore;
 
 namespace api.Domain.UseCase.UserServices
 {
@@ -39,6 +38,18 @@ namespace api.Domain.UseCase.UserServices
           var user = await repository.FindById(id);
           if(user == null) throw new UserNotFound("Usuário não encontrado");
           await repository.Delete(user);
+        }
+        public async Task<UserJwt> Login(User user, IToken token)
+        {
+           var loggedUser = await repository.FindByEmailAndPassword(user.Email, user.Password);
+           if(loggedUser == null) throw new UserNotFound("Usuário e senha inválidos");
+           return new UserJwt(){
+             Id = loggedUser.Id,
+             Name = loggedUser.Name,
+             Email = loggedUser.Email,
+             Role = loggedUser.Role.ToString(),
+             Token = token.GerarToken(loggedUser)
+           };
         }
 
         public Task<ICollection<UserView>> All()

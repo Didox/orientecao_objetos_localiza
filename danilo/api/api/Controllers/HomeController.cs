@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using api.Domain.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers
 {
@@ -21,6 +22,7 @@ namespace api.Controllers
 
         [HttpGet]
         [Route("/")]
+        [AllowAnonymous]
         public Welcome Index()
         {
             return new Welcome();
